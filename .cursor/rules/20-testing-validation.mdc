@@ -1,0 +1,17 @@
+---
+description: Testing standards for correctness, coverage, and regression safety.
+alwaysApply: true
+---
+
+# Testing and Validation
+
+- Add unit tests for all new business logic unless explicitly waived by the user.
+- Add regression tests for bug fixes when feasible.
+- Cover: happy path, edge cases, invalid/boundary input, and failure/error paths.
+- Prefer deterministic tests; investigate and fix flaky behavior rather than
+  masking it with retries or skip flags.
+- Mock external services and I/O in automated tests unless integration coverage
+  is the explicit goal.
+- Never remove or weaken existing tests just to make CI pass.
+- Validate: concurrency, retries, race conditions, state corruption, invalid
+  transitions, and rollback behavior where applicable.

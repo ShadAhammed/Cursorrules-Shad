@@ -1,0 +1,18 @@
+---
+description: Architecture, readability, and maintainability standards.
+alwaysApply: true
+---
+
+# Code Quality and Architecture
+
+- Follow SOLID, DRY, KISS, and YAGNI with a consistent bias toward maintainability.
+- Keep functions and modules focused on a single responsibility; favor small,
+  composable units over large monoliths.
+- Use guard clauses and early returns to reduce nesting; avoid "arrow code".
+- Prefer explicit typing and type narrowing; avoid `any` unless there is a justified
+  interoperability or migration reason — document that reason inline.
+- Never suppress lint, type, or security warnings without a brief inline rationale.
+- Prioritize readability and clear, intention-revealing names over clever one-liners.
+- Prefer composition over inheritance; avoid tight coupling between modules.
+- Avoid machine-specific paths or environment assumptions; use portable configuration
+  and dynamic path resolution.

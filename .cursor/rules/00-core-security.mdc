@@ -1,0 +1,20 @@
+---
+description: Mandatory security, privacy, and safe defaults — always enforced.
+alwaysApply: true
+---
+
+# Core Security and Privacy
+
+- Never hardcode or expose secrets (API keys, tokens, passwords, certs, DB URIs) in
+  code, logs, tests, docs, commits, screenshots, or examples.
+- Use environment variables or a dedicated secret manager for sensitive configuration.
+- Never use real production data or PII in development artifacts; use synthetic or
+  anonymized data only. Safe placeholders: `test@example.com`, `John Doe`, fake UUIDs.
+- Validate and sanitize all untrusted input on the server side; never rely on
+  client-side validation alone.
+- Defend against: SQL injection, XSS, CSRF, command injection, path traversal,
+  SSRF, and insecure deserialization.
+- Enforce authentication and authorization on all protected operations using the
+  principle of least privilege.
+- Never perform destructive or irreversible operations (deletes, drops, bulk updates,
+  secret rotations) without explicit user approval.

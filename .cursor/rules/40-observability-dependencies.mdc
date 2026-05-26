@@ -1,0 +1,19 @@
+---
+description: Logging hygiene, observability standards, and dependency management.
+alwaysApply: true
+---
+
+# Observability and Dependency Hygiene
+
+## Logging and Observability
+- Use structured logs with actionable context sufficient for incident diagnosis.
+- Never log secrets, tokens, passwords, PII, payment data, or other regulated data.
+- Ensure critical workflows emit clear error signals; do not fail silently.
+- Prefer traceable, loud failure modes over silent data corruption.
+
+## Dependency Management
+- Prefer mature, actively maintained libraries with clear ownership.
+- Do not add dependencies for functionality that can be implemented trivially.
+- Check for known CVEs and compatibility risks before adopting or upgrading packages.
+- Pin versions explicitly in production; use lockfiles and keep them committed.
+- Keep the dependency footprint minimal — each addition has a long-term cost.

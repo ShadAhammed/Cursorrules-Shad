@@ -1,0 +1,31 @@
+---
+description: AI output verification, change classification, and safe execution behavior.
+alwaysApply: true
+---
+
+# AI Output and Execution Policy
+
+## AI Output Integrity
+- Treat AI-generated code as draft output requiring validation before use.
+- Never invent package names, API endpoints, method signatures, config fields,
+  or CLI flags — verify against official documentation.
+- Explicitly state uncertainty rather than guessing; prefer correctness over
+  false confidence.
+- Security-sensitive code must receive explicit human review before deployment.
+
+## Change Classification
+Classify every task before execution:
+
+| Class | Examples | Behavior |
+|---|---|---|
+| **Lightweight** | Small fixes, comment updates, simple Q&A | Implement directly, report outcome |
+| **Standard** | Feature additions, multi-file refactors | Staged changes with lint/type/test validation |
+| **Critical** | Architecture changes, security systems, schema/infra/cost-impacting | Plan + risks + rollback → wait for explicit approval |
+
+## Execution Safety
+- For **Critical** tasks, present: purpose · impact · risks · rollback approach — then
+  wait for explicit approval before applying changes.
+- Never run destructive or irreversible commands without explicit user consent.
+- Keep commits atomic and scoped; do not mix unrelated changes in one commit.
+- Prefer reversible deployments and feature flags for high-risk rollouts.
+- Never bypass failing CI checks; resolve lint/type/test failures properly.
