@@ -16,4 +16,4 @@ alwaysApply: true
 - Do not add dependencies for functionality that can be implemented trivially.
 - Check for known CVEs and compatibility risks before adopting or upgrading packages.
 - Pin versions explicitly in production; use lockfiles and keep them committed.
-- Keep the dependency footprint minimal — each addition has a long-term cost.
+- Keep the dependency footprint minimal - each addition has a long-term cost.

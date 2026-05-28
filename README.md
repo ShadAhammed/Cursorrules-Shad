@@ -1,7 +1,7 @@
 # Cursor Engineering Rules
 
 A modular, opinionated ruleset for [Cursor](https://cursor.sh/) that turns your AI
-assistant into a senior software engineer — security-conscious, quality-driven, and
+assistant into a senior software engineer - security-conscious, quality-driven, and
 disciplined about risky changes.
 
 Drop these files into any project and Cursor will consistently enforce the same
@@ -25,14 +25,14 @@ engineering standards across your entire codebase.
 
 ## Quick Install
 
-### Option A — Copy into an existing project
+### Option A - Copy into an existing project
 
 ```bash
 # from your project root
 curl -fsSL https://raw.githubusercontent.com/ShadAhammed/cursor-engineering-rules/main/install.sh | bash
 ```
 
-### Option B — Manual copy
+### Option B - Manual copy
 
 ```
 .cursorrules
@@ -48,7 +48,7 @@ curl -fsSL https://raw.githubusercontent.com/ShadAhammed/cursor-engineering-rule
 
 Copy the above structure into the root of any project and open it in Cursor.
 
-### Option C — Clone and symlink (monorepo / shared setup)
+### Option C - Clone and symlink (monorepo / shared setup)
 
 ```bash
 git clone https://github.com/ShadAhammed/cursor-engineering-rules.git ~/.cursor-rules
@@ -65,7 +65,7 @@ Cursor reads `.cursorrules` and `.cursor/rules/*.mdc` automatically on every ses
 Rules marked `alwaysApply: true` are injected into every prompt context regardless of
 which file you have open.
 
-The rules are modular by design — you can edit or delete individual `.mdc` files to
+The rules are modular by design - you can edit or delete individual `.mdc` files to
 match your stack without touching the rest.
 
 ---
@@ -113,7 +113,7 @@ a security incident, consider sharing it here.
 
 ## License
 
-MIT — free to use, modify, and distribute. See [LICENSE](LICENSE).
+MIT - free to use, modify, and distribute. See [LICENSE](LICENSE).
 
 ---
 

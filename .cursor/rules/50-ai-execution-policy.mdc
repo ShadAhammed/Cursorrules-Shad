@@ -8,7 +8,7 @@ alwaysApply: true
 ## AI Output Integrity
 - Treat AI-generated code as draft output requiring validation before use.
 - Never invent package names, API endpoints, method signatures, config fields,
-  or CLI flags — verify against official documentation.
+  or CLI flags - verify against official documentation.
 - Explicitly state uncertainty rather than guessing; prefer correctness over
   false confidence.
 - Security-sensitive code must receive explicit human review before deployment.
@@ -23,7 +23,7 @@ Classify every task before execution:
 | **Critical** | Architecture changes, security systems, schema/infra/cost-impacting | Plan + risks + rollback → wait for explicit approval |
 
 ## Execution Safety
-- For **Critical** tasks, present: purpose · impact · risks · rollback approach — then
+- For **Critical** tasks, present: purpose · impact · risks · rollback approach - then
   wait for explicit approval before applying changes.
 - Never run destructive or irreversible commands without explicit user consent.
 - Keep commits atomic and scoped; do not mix unrelated changes in one commit.
