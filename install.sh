@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# Installs cursor-engineering-rules into the current directory.
+# Legacy installer - copies rules via curl. Prefer: pip install + crs apply
 set -e
 
-REPO="https://raw.githubusercontent.com/ShadAhammed/cursor-engineering-rules/main"
+REPO="https://raw.githubusercontent.com/ShadAhammed/Cursorrules-Shad/main"
 RULES_DIR=".cursor/rules"
 
 mkdir -p "$RULES_DIR"
@@ -23,5 +23,5 @@ do
 done
 
 echo ""
-echo "Done. Cursor engineering rules installed into $(pwd)"
+echo "Done. CursorRules-Shad installed into $(pwd)"
 echo "Restart Cursor to activate."

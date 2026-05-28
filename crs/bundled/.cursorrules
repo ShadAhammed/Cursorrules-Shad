@@ -1,0 +1,13 @@
+---
+description: Entrypoint for project-wide Cursor behavior.
+alwaysApply: true
+---
+
+# Cursor Rules Entrypoint
+
+Focused rules live in `.cursor/rules/*.mdc`. Each file owns one concern.
+
+Priority on conflicts:
+1. Explicit user instruction for the current task
+2. Security/privacy and irreversible-change safeguards (00-core-security)
+3. Other project rules in numeric order

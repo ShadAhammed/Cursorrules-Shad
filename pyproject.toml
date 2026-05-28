@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cursorrules-shad"
+version = "0.1.0"
+description = "CLI to apply CursorRules-Shad engineering rules to any project."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Abu Shad Ahammed" }]
+keywords = ["cursor", "rules", "cli", "engineering"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Quality Assurance",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/ShadAhammed/Cursorrules-Shad"
+Repository = "https://github.com/ShadAhammed/Cursorrules-Shad"
+
+[project.scripts]
+crs = "crs.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["crs*"]
+
+[tool.setuptools.package-data]
+crs = ["bundled/.cursorrules", "bundled/rules/*.mdc"]

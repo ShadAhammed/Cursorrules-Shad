@@ -1,15 +1,42 @@
-# Cursor Engineering Rules
+# CursorRules-Shad
 
-A modular, opinionated ruleset for [Cursor](https://cursor.sh/) that turns your AI
-assistant into a senior software engineer - security-conscious, quality-driven, and
-disciplined about risky changes.
+A modular ruleset for [Cursor](https://cursor.sh/) that enforces security-conscious, quality-driven engineering standards across any project.
 
-Drop these files into any project and Cursor will consistently enforce the same
-engineering standards across your entire codebase.
+Install the rules with one command, then apply them to any repo from the terminal.
 
 ---
 
-## What's Inside
+## Quick start
+
+```bash
+pip install git+https://github.com/ShadAhammed/Cursorrules-Shad.git
+cd your-project
+crs apply
+```
+
+This writes:
+
+- `.cursorrules`
+- `.cursor/rules/*.mdc`
+
+Restart Cursor after applying.
+
+---
+
+## CLI
+
+| Command | Description |
+|---|---|
+| `crs apply` | Apply rules to the current directory |
+| `crs apply --path /path/to/project` | Apply rules to a specific project |
+| `crs apply --dry-run` | Preview files that would be written |
+| `crs --version` | Print installed version |
+
+**crs** stands for **CursorRules-Shad**.
+
+---
+
+## What's inside
 
 | File | Concern |
 |---|---|
@@ -23,91 +50,37 @@ engineering standards across your entire codebase.
 
 ---
 
-## Quick Install
-
-### Option A - Copy into an existing project
+## Alternative install (curl)
 
 ```bash
-# from your project root
-curl -fsSL https://raw.githubusercontent.com/ShadAhammed/cursor-engineering-rules/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/ShadAhammed/Cursorrules-Shad/main/install.sh | bash
 ```
 
-### Option B - Manual copy
+---
 
-```
-.cursorrules
-.cursor/
-  rules/
-    00-core-security.mdc
-    10-code-quality.mdc
-    20-testing-validation.mdc
-    30-data-and-performance.mdc
-    40-observability-dependencies.mdc
-    50-ai-execution-policy.mdc
-```
+## How it works
 
-Copy the above structure into the root of any project and open it in Cursor.
+Cursor reads `.cursorrules` and `.cursor/rules/*.mdc` on every session. Rules marked `alwaysApply: true` are injected into prompt context automatically.
 
-### Option C - Clone and symlink (monorepo / shared setup)
+The rules are modular - edit or remove individual `.mdc` files to match your stack.
+
+---
+
+## Rule priority
+
+1. Explicit user instruction for the current task
+2. Security and irreversible-change safeguards (`00-core-security`, `50-ai-execution-policy`)
+3. Other project rules in numeric filename order
+
+---
+
+## Maintainers
+
+After editing rules under `.cursor/rules/`, sync the Python bundle before release:
 
 ```bash
-git clone https://github.com/ShadAhammed/cursor-engineering-rules.git ~/.cursor-rules
-# then symlink into each project:
-ln -s ~/.cursor-rules/.cursorrules /path/to/your/project/.cursorrules
-ln -s ~/.cursor-rules/.cursor      /path/to/your/project/.cursor
+bash scripts/sync-bundled.sh
 ```
-
----
-
-## How It Works
-
-Cursor reads `.cursorrules` and `.cursor/rules/*.mdc` automatically on every session.
-Rules marked `alwaysApply: true` are injected into every prompt context regardless of
-which file you have open.
-
-The rules are modular by design - you can edit or delete individual `.mdc` files to
-match your stack without touching the rest.
-
----
-
-## Rule Priority
-
-When instructions conflict, this order applies:
-
-1. **Explicit user instruction** for the current task
-2. **Security and irreversible-change safeguards** (`00-core-security`, `50-ai-execution-policy`)
-3. **Other project rules** in numeric filename order
-
----
-
-## Change Classification
-
-The execution policy (`50-ai-execution-policy.mdc`) requires the AI to classify every
-task before acting:
-
-| Class | Examples | AI Behavior |
-|---|---|---|
-| **Lightweight** | Small fixes, refactors, Q&A | Implement directly |
-| **Standard** | Feature additions, multi-file changes | Staged implementation with lint/type/test |
-| **Critical** | Architecture, security, schema, infra, cost | Plan → risks → rollback → wait for approval |
-
----
-
-## Customization
-
-These rules are designed to be a starting point, not a straitjacket.
-
-- **Add a language-specific rule:** create a new `.mdc` with a `globs` pattern, e.g.
-  `globs: **/*.py` for Python-only guidance.
-- **Relax a rule:** edit the relevant `.mdc` file and add a project-specific exception.
-- **Disable a rule entirely:** delete the `.mdc` file or set `alwaysApply: false`.
-
----
-
-## Contributing
-
-Issues and PRs are welcome. If you have a rule that has saved you from a bad deploy or
-a security incident, consider sharing it here.
 
 ---
 

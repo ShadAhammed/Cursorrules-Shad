@@ -1,0 +1,20 @@
+---
+description: Database safety, migration integrity, and performance guardrails.
+alwaysApply: true
+---
+
+# Data, Migrations, and Performance
+
+## Database Safety
+- Parameterize all queries; never concatenate untrusted input into SQL/NoSQL statements.
+- Use transactions for multi-step writes that must remain consistent.
+- Require explicit approval and a documented rollback plan before executing
+  destructive schema changes or high-risk data operations.
+- Avoid unbounded bulk `UPDATE`/`DELETE`; always include safeguarding conditions.
+
+## Performance
+- Consider algorithmic complexity (time and space) for data-intensive operations.
+- Prevent N+1 query patterns and over-fetching; paginate or stream large datasets.
+- Use async/non-blocking I/O patterns in latency-sensitive or high-throughput paths.
+- Avoid loading large datasets entirely into memory when streaming is viable.
+- Reduce unnecessary re-computation; cache deterministic results where appropriate.
